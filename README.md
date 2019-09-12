@@ -2,6 +2,7 @@
 This enables you easily to observe global multitouch events on the trackpad (Built-In only).  
 I created this framework to make MultitouchSupport.framework (Private Framework) easy to use.  
 This framework refers to [M5MultitouchSupport.framework](https://github.com/mhuusko5/M5MultitouchSupport) very much.
+This project includes a demo.
 
 ## References
 - [natevw / TouchSynthesis](https://github.com/calftrail/Touch/blob/master/TouchSynthesis/MultitouchSupport.h)

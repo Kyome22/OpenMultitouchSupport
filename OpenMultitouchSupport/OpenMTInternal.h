@@ -56,7 +56,8 @@ extern "C" {
     typedef void (*MTFrameCallbackFunction)(MTDeviceRef device, MTTouch touches[],
                                             int numTouches, double timestamp, int frame);
     typedef void (*MTPathCallbackFunction)(MTDeviceRef device, long pathID, long state, MTTouch* touch);
-    typedef void (*MTImageCallbackFunction)(MTDeviceRef device, void* a, void* b, void* c);
+    // typedef void (*MTImageCallbackFunction)(MTDeviceRef device, int* a, int* b, int* c);
+    // typedef void (*MTFullFrameCallbackFunction)(MTDeviceRef device, int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l);
     
     bool MTDeviceIsAvailable(void); // true if can create default device
     MTDeviceRef MTDeviceCreateDefault(void);
@@ -67,6 +68,7 @@ extern "C" {
     bool MTDeviceIsBuiltIn(MTDeviceRef) __attribute__ ((weak_import));
     
     OSStatus MTDeviceGetSensorSurfaceDimensions(MTDeviceRef, int*, int*);
+    OSStatus MTDeviceGetSensorDimensions(MTDeviceRef, int*, int*);
     OSStatus MTDeviceGetFamilyID(MTDeviceRef, int*);
     OSStatus MTDeviceGetDeviceID(MTDeviceRef, uint64_t*) __attribute__ ((weak_import));
     OSStatus MTDeviceGetDriverType(MTDeviceRef, int*);
@@ -75,10 +77,20 @@ extern "C" {
     void MTRegisterContactFrameCallback(MTDeviceRef, MTFrameCallbackFunction);
     void MTUnregisterContactFrameCallback(MTDeviceRef, MTFrameCallbackFunction);
     
+    // void MTRegisterFullFrameCallback(MTDeviceRef, MTFullFrameCallbackFunction);
+    // void MTUnregisterFullFrameCallback(MTDeviceRef, MTFullFrameCallbackFunction);
+    
     void MTRegisterPathCallback(MTDeviceRef, MTPathCallbackFunction);
-    void MTRegisterMultitouchImageCallback(MTDeviceRef, MTImageCallbackFunction);
-    void MTUnregisterImageCallback(MTDeviceRef, MTImageCallbackFunction);
+    void MTUnregisterPathCallback(MTDeviceRef, MTPathCallbackFunction);
+    
+    // void MTRegisterMultitouchImageCallback(MTDeviceRef, MTImageCallbackFunction);
+    // void MTUnregisterImageCallback(MTDeviceRef, MTImageCallbackFunction);
     
 #ifdef __cplusplus
 }
 #endif
+
+
+//_MTGetImageProcessingStepName
+//_MTGetImageRegionName
+//_MTImagePrintCallback

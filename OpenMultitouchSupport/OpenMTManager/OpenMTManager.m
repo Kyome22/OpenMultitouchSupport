@@ -73,8 +73,16 @@
         int width, height;
         err = MTDeviceGetSensorSurfaceDimensions(self.device, &width, &height);
         if (!err) NSLog(@"Surface Dimensions: %d x %d ", width, height);
+        
+        int rows, cols;
+        err = MTDeviceGetSensorDimensions(self.device, &rows, &cols);
+        if (!err) NSLog(@"Dimensions: %d x %d ", rows, cols);
     }
 }
+
+//- (void)handleEvent:(int)a b:(int)b c:(int)c d:(int)d e:(int)e f:(int)f g:(int)g h:(int)h i:(int)i j:(int)j k:(int)k l:(int)l {
+//    NSLog(@"I'm called %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d", a, b, c, d, e, f, g, h, i, j, k, l);
+//}
 
 - (void)handleMultitouchEvent:(OpenMTEvent *)event {
     for (int i = 0; i < (int)self.listeners.count; i++) {
@@ -95,7 +103,8 @@
 - (void)startHandlingMultitouchEvents {
     [self makeDevice];
     @try {
-        MTRegisterContactFrameCallback(self.device, eventHandler);
+        // MTRegisterFullFrameCallback(self.device, eventHandler);
+        MTRegisterContactFrameCallback(self.device, contactEventHandler);
         MTDeviceStart(self.device, 0);
     } @catch (NSException *exception) {
         NSLog(@"Failed Start Handling Multitouch Events");
@@ -105,7 +114,8 @@
 - (void)stopHandlingMultitouchEvents {
     if (!MTDeviceIsRunning(self.device)) { return; }
     @try {
-        MTUnregisterContactFrameCallback(self.device, eventHandler);
+        // MTUnregisterFullFrameCallback(self.device, eventHandler);
+        MTUnregisterContactFrameCallback(self.device, contactEventHandler);
         MTDeviceStop(self.device);
         MTDeviceRelease(self.device);
     } @catch (NSException *exception) {
@@ -166,7 +176,7 @@ static void dispatchResponse(dispatch_block_t block) {
     dispatch_sync(responseQueue, block);
 }
 
-static void eventHandler(MTDeviceRef eventDevice, MTTouch eventTouches[], int numTouches, double timestamp, int frame) {
+static void contactEventHandler(MTDeviceRef eventDevice, MTTouch eventTouches[], int numTouches, double timestamp, int frame) {
     NSMutableArray *touches = [[NSMutableArray alloc] initWithCapacity:numTouches];
     
     for (int i = 0; i < numTouches; i++) {
@@ -182,5 +192,9 @@ static void eventHandler(MTDeviceRef eventDevice, MTTouch eventTouches[], int nu
     
     [OpenMTManager.sharedManager handleMultitouchEvent:event];
 }
+
+//static void eventHandler(MTDeviceRef eventDevice, int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l) {
+//    [OpenMTManager.sharedManager handleEvent:a b:b c:c d:d e:e f:f g:g h:h i:i j:j k:k l:l];
+//}
 
 @end
