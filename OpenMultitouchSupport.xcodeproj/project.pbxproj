@@ -106,6 +106,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0D09802359C104000A804D /* OpenMTManager */ = {
+			isa = PBXGroup;
+			children = (
+				1CD8E68522D7226D00F0A90A /* OpenMTManager.h */,
+				1CD8E68722D7227A00F0A90A /* OpenMTManagerInternal.h */,
+				1CD8E68822D7228D00F0A90A /* OpenMTManager.m */,
+			);
+			name = OpenMTManager;
+			sourceTree = "<group>";
+		};
+		1C0D09832359C154000A804D /* OpenMTListener */ = {
+			isa = PBXGroup;
+			children = (
+				1CD8E67F22D7215F00F0A90A /* OpenMTListener.h */,
+				1CD8E68122D7217100F0A90A /* OpenMTListenerInternal.h */,
+				1CD8E68322D7218800F0A90A /* OpenMTListener.m */,
+			);
+			name = OpenMTListener;
+			sourceTree = "<group>";
+		};
+		1C0D09842359C167000A804D /* OpenMTEvent */ = {
+			isa = PBXGroup;
+			children = (
+				1CD8E67C22D71E6D00F0A90A /* OpenMTEvent.h */,
+				1CD8E67B22D71E5F00F0A90A /* OpenMTEventInternal.h */,
+				1CD8E67922D71E4700F0A90A /* OpenMTEvent.m */,
+			);
+			name = OpenMTEvent;
+			sourceTree = "<group>";
+		};
+		1C0D09852359C177000A804D /* OpenMTTouch */ = {
+			isa = PBXGroup;
+			children = (
+				1CD8E67222D718A600F0A90A /* OpenMTTouch.h */,
+				1CD8E67422D718BA00F0A90A /* OpenMTTouchInternal.h */,
+				1CD8E67022D7187400F0A90A /* OpenMTTouch.m */,
+			);
+			name = OpenMTTouch;
+			sourceTree = "<group>";
+		};
 		1CACCE83232A29900044EA02 /* OpenMultitouchDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,10 +184,10 @@
 			children = (
 				1CD8E65D22D70E0800F0A90A /* OpenMultitouchSupport.h */,
 				1CD8E66C22D7105100F0A90A /* OpenMTInternal.h */,
-				1CD8E67822D71E2A00F0A90A /* OpenMTManager */,
-				1CD8E67722D71E1F00F0A90A /* OpenMTListener */,
-				1CD8E67622D71E0600F0A90A /* OpenMTEvent */,
-				1CD8E67522D718C600F0A90A /* OpenMTTouch */,
+				1C0D09802359C104000A804D /* OpenMTManager */,
+				1C0D09832359C154000A804D /* OpenMTListener */,
+				1C0D09842359C167000A804D /* OpenMTEvent */,
+				1C0D09852359C177000A804D /* OpenMTTouch */,
 				1CD8E65E22D70E0800F0A90A /* Info.plist */,
 			);
 			path = OpenMultitouchSupport;
@@ -160,46 +200,6 @@
 				1CD8E66622D70EAB00F0A90A /* Cocoa.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1CD8E67522D718C600F0A90A /* OpenMTTouch */ = {
-			isa = PBXGroup;
-			children = (
-				1CD8E67222D718A600F0A90A /* OpenMTTouch.h */,
-				1CD8E67422D718BA00F0A90A /* OpenMTTouchInternal.h */,
-				1CD8E67022D7187400F0A90A /* OpenMTTouch.m */,
-			);
-			path = OpenMTTouch;
-			sourceTree = "<group>";
-		};
-		1CD8E67622D71E0600F0A90A /* OpenMTEvent */ = {
-			isa = PBXGroup;
-			children = (
-				1CD8E67C22D71E6D00F0A90A /* OpenMTEvent.h */,
-				1CD8E67B22D71E5F00F0A90A /* OpenMTEventInternal.h */,
-				1CD8E67922D71E4700F0A90A /* OpenMTEvent.m */,
-			);
-			path = OpenMTEvent;
-			sourceTree = "<group>";
-		};
-		1CD8E67722D71E1F00F0A90A /* OpenMTListener */ = {
-			isa = PBXGroup;
-			children = (
-				1CD8E67F22D7215F00F0A90A /* OpenMTListener.h */,
-				1CD8E68122D7217100F0A90A /* OpenMTListenerInternal.h */,
-				1CD8E68322D7218800F0A90A /* OpenMTListener.m */,
-			);
-			path = OpenMTListener;
-			sourceTree = "<group>";
-		};
-		1CD8E67822D71E2A00F0A90A /* OpenMTManager */ = {
-			isa = PBXGroup;
-			children = (
-				1CD8E68522D7226D00F0A90A /* OpenMTManager.h */,
-				1CD8E68722D7227A00F0A90A /* OpenMTManagerInternal.h */,
-				1CD8E68822D7228D00F0A90A /* OpenMTManager.m */,
-			);
-			path = OpenMTManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
