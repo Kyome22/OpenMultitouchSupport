@@ -8,6 +8,18 @@ This project includes a demo.
 - [natevw / TouchSynthesis](https://github.com/calftrail/Touch/blob/master/TouchSynthesis/MultitouchSupport.h)
 - [asmagill / hammerspoon_asm.undocumented](https://github.com/asmagill/hammerspoon_asm.undocumented/blob/master/touchdevice/MultitouchSupport.h)
 
+## Installation
+
+### CocoaPods
+```
+pod 'OpenMultitouchSupport'
+```
+
+### Carthage
+```
+github "Kyome22/OpenMultitouchSupport"
+```
+
 ## Usage (Swift)
 
 - Prepare manager
@@ -52,8 +64,8 @@ OpenMTTouch
 .minorAxis // Float
 .velX // Float
 .velY // Float
-.size // Float
-.density // Float
+.total // Float, total value of capacitance 
+.density // Float, area density of capacitance
 .state // OpenMTState
 
 OpenMTState

@@ -56,7 +56,7 @@ class ViewController: NSViewController {
                                       pos: FloatPair(x: touch.posX, y: touch.posY),
                                       axis: FloatPair(x: touch.majorAxis, y: touch.minorAxis),
                                       angle: touch.angle,
-                                      size: touch.size,
+                                      total: touch.total,
                                       density: touch.density,
                                       state: state,
                                       timestamp: fmt.string(from: Date())))
@@ -68,11 +68,11 @@ class ViewController: NSViewController {
     }
     
     func updateTextView(_ text: String) {
-        texts.append(text)
-        if texts.count > 50 {
-            texts.removeFirst()
-        }
         DispatchQueue.main.async {
+            self.texts.append(text)
+            if self.texts.count > 50 {
+                self.texts.removeFirst()
+            }
             self.textView.string = self.texts.joined(separator: "\n")
             self.textView.scrollToEndOfDocument(nil)
         }

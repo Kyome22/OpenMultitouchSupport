@@ -22,7 +22,7 @@
 @property (assign, readwrite) float velX, velY;
 @property (assign, readwrite) float minorAxis, majorAxis;
 @property (assign, readwrite) float angle;
-@property (assign, readwrite) float size;
+@property (assign, readwrite) float total;
 @property (assign, readwrite) float density;
 @property (assign, readwrite) double timestamp;
 

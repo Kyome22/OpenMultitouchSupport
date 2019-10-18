@@ -9,15 +9,16 @@
 #import <Cocoa/Cocoa.h>
 
 #import "OpenMTManagerInternal.h"
-#import "OpenMTInternal.h"
 #import "OpenMTListenerInternal.h"
 #import "OpenMTTouchInternal.h"
 #import "OpenMTEventInternal.h"
+#import "OpenMTInternal.h"
 
 @interface OpenMTManager()
 
 @property (strong, readwrite) NSMutableArray *listeners;
 @property (assign, readwrite) MTDeviceRef device;
+@property (assign, readwrite) MTImageInfoRef imageInfo;
 
 @end
 
@@ -77,11 +78,16 @@
         int rows, cols;
         err = MTDeviceGetSensorDimensions(self.device, &rows, &cols);
         if (!err) NSLog(@"Dimensions: %d x %d ", rows, cols);
+        
+        bool isOpaque = MTDeviceIsOpaqueSurface(self.device);
+        NSLog(isOpaque ? @"Opaque: true" : @"Opaque: false");
+        
+        // MTPrintImageRegionDescriptors(self.device); work
     }
 }
 
-//- (void)handleEvent:(int)a b:(int)b c:(int)c d:(int)d e:(int)e f:(int)f g:(int)g h:(int)h i:(int)i j:(int)j k:(int)k l:(int)l {
-//    NSLog(@"I'm called %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d", a, b, c, d, e, f, g, h, i, j, k, l);
+//- (void)handlePathEvent:(OpenMTTouch *)touch {
+//    NSLog(@"%@", touch.description);
 //}
 
 - (void)handleMultitouchEvent:(OpenMTEvent *)event {
@@ -103,8 +109,10 @@
 - (void)startHandlingMultitouchEvents {
     [self makeDevice];
     @try {
-        // MTRegisterFullFrameCallback(self.device, eventHandler);
-        MTRegisterContactFrameCallback(self.device, contactEventHandler);
+        MTRegisterContactFrameCallback(self.device, contactEventHandler); // work
+        // MTEasyInstallPrintCallbacks(self.device, YES, NO, NO, NO, NO, NO); // work
+        // MTRegisterPathCallback(self.device, pathEventHandler); // work
+        // MTRegisterMultitouchImageCallback(self.device, MTImagePrintCallback); // not work
         MTDeviceStart(self.device, 0);
     } @catch (NSException *exception) {
         NSLog(@"Failed Start Handling Multitouch Events");
@@ -114,8 +122,9 @@
 - (void)stopHandlingMultitouchEvents {
     if (!MTDeviceIsRunning(self.device)) { return; }
     @try {
-        // MTUnregisterFullFrameCallback(self.device, eventHandler);
-        MTUnregisterContactFrameCallback(self.device, contactEventHandler);
+        MTUnregisterContactFrameCallback(self.device, contactEventHandler); // work
+        // MTUnregisterPathCallback(self.device, pathEventHandler); // work
+        // MTUnregisterImageCallback(self.device, MTImagePrintCallback); // not work
         MTDeviceStop(self.device);
         MTDeviceRelease(self.device);
     } @catch (NSException *exception) {
@@ -177,11 +186,11 @@ static void dispatchResponse(dispatch_block_t block) {
 }
 
 static void contactEventHandler(MTDeviceRef eventDevice, MTTouch eventTouches[], int numTouches, double timestamp, int frame) {
-    NSMutableArray *touches = [[NSMutableArray alloc] initWithCapacity:numTouches];
+    NSMutableArray *touches = [NSMutableArray array];
     
     for (int i = 0; i < numTouches; i++) {
         OpenMTTouch *touch = [[OpenMTTouch alloc] initWithMTTouch:&eventTouches[i]];
-        touches[i] = touch;
+        [touches addObject:touch];
     }
     
     OpenMTEvent *event = OpenMTEvent.new;
@@ -193,8 +202,9 @@ static void contactEventHandler(MTDeviceRef eventDevice, MTTouch eventTouches[],
     [OpenMTManager.sharedManager handleMultitouchEvent:event];
 }
 
-//static void eventHandler(MTDeviceRef eventDevice, int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l) {
-//    [OpenMTManager.sharedManager handleEvent:a b:b c:c d:d e:e f:f g:g h:h i:i j:j k:k l:l];
+//static void pathEventHandler(MTDeviceRef device, long pathID, long state, MTTouch* touch) {
+//    OpenMTTouch *otouch = [[OpenMTTouch alloc] initWithMTTouch:touch];
+//    [OpenMTManager.sharedManager handlePathEvent:otouch];
 //}
 
 @end

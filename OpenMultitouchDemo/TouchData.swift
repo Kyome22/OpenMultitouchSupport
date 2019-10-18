@@ -18,18 +18,18 @@ struct TouchData {
     let pos: FloatPair
     let axis: FloatPair
     let angle: Float
-    let size: Float
+    let total: Float
     let density: Float
     let state: String
     let timestamp: String
     
     var description: String {
-        return  String(format: "%d,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%@,%@\n",
-                       id, pos.x, pos.y, axis.x, axis.y, angle, size, density, state, timestamp)
+        return  String(format: "%2d,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%@,%@\n",
+                       id, pos.x, pos.y, axis.x, axis.y, angle, total, density, state, timestamp)
     }
     var explanation: String {
-        return  String(format: "id:%d, pos:(%05.3f,%05.3f), axis(%06.3f,%05.3f), angle:%05.3f, size:%05.3f, density:%05.3f, %@, %@",
-                       id, pos.x, pos.y, axis.x, axis.y, angle, size, density, state, timestamp)
+        return  String(format: "id:%2d, pos:(%05.3f,%05.3f), axis(%06.3f,%05.3f), angle:%05.3f, total:%05.3f, density:%05.3f, %@, %@",
+                       id, pos.x, pos.y, axis.x, axis.y, angle, total, density, state, timestamp)
     }
 }
 
