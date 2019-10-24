@@ -28,9 +28,10 @@ typedef NS_ENUM(NSUInteger, OpenMTState) {
 @property (assign, readonly) OpenMTState state;
 @property (assign, readonly) float posX, posY;
 @property (assign, readonly) float velX, velY;
+@property (assign, readonly) float total;
+@property (assign, readonly) float pressure;
 @property (assign, readonly) float minorAxis, majorAxis;
 @property (assign, readonly) float angle;
-@property (assign, readonly) float total;
 @property (assign, readonly) float density;
 @property (assign, readonly) double timestamp;
 

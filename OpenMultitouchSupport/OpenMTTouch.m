@@ -18,10 +18,11 @@
         _posY = touch->normalizedPosition.position.y;
         _velX = touch->normalizedPosition.velocity.x;
         _velY = touch->normalizedPosition.velocity.y;
+        _total = touch->total;
+        _pressure = touch->pressure;
         _minorAxis = touch->minorAxis;
         _majorAxis = touch->majorAxis;
         _angle = touch->angle;
-        _total = touch->total;
         _density = touch->density;
         _timestamp = touch->timestamp;
     }
@@ -29,8 +30,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"ID: %i, State: %lu, Position: [%f, %f], Velocity: [%f, %f], Minor: %f, Major: %f, Angle: %f, Total: %f, Density: %f, Timestamp: %lf",
-            _identifier, _state, _posX, _posY, _velX, _velY, _minorAxis, _majorAxis, _angle, _total, _density, _timestamp];
+    return [NSString stringWithFormat:@"ID: %i, State: %lu, Position: [%f, %f], Velocity: [%f, %f], Total: %f, Pressure: %f, Minor: %f, Major: %f, Angle: %f, Density: %f, Timestamp: %lf",
+            _identifier, _state, _posX, _posY, _velX, _velY, _total, _pressure, _minorAxis, _majorAxis, _angle, _density, _timestamp];
 }
 
 @end

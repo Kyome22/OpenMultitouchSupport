@@ -20,9 +20,10 @@
 @property (assign, readwrite) OpenMTState state;
 @property (assign, readwrite) float posX, posY;
 @property (assign, readwrite) float velX, velY;
+@property (assign, readwrite) float total;
+@property (assign, readwrite) float pressure;
 @property (assign, readwrite) float minorAxis, majorAxis;
 @property (assign, readwrite) float angle;
-@property (assign, readwrite) float total;
 @property (assign, readwrite) float density;
 @property (assign, readwrite) double timestamp;
 

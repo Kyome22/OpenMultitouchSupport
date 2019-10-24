@@ -59,12 +59,13 @@ listener.listening = [true / false]
 OpenMTTouch
 .posX // Float
 .posY // Float
-.angle // Float
+.total // Float, total value of capacitance 
+.pressure // Float
 .majorAxis // Float
 .minorAxis // Float
+.angle // Float
 .velX // Float
 .velY // Float
-.total // Float, total value of capacitance 
 .density // Float, area density of capacitance
 .state // OpenMTState
 

@@ -46,7 +46,7 @@ typedef struct {
     int handId;
     MTVector normalizedPosition;
     float total; //total of capacitance
-    int field9;
+    float pressure;
     float angle;
     float majorAxis;
     float minorAxis;
@@ -57,7 +57,6 @@ typedef struct {
 } MTTouch;
 
 typedef void *MTDeviceRef;
-typedef void *MTImageInfoRef;
 typedef void (*MTFrameCallbackFunction)(MTDeviceRef device, MTTouch touches[], int numTouches, double timestamp, int frame);
 typedef void (*MTPathCallbackFunction)(MTDeviceRef device, long pathID, long state, MTTouch* touch);
 typedef void (*MTImageCallbackFunction)(MTDeviceRef, void*, void*, void*);

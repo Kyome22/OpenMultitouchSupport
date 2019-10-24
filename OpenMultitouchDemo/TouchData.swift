@@ -16,20 +16,21 @@ struct FloatPair {
 struct TouchData {
     let id: Int32
     let pos: FloatPair
+    let total: Float
+    let pressure: Float
     let axis: FloatPair
     let angle: Float
-    let total: Float
     let density: Float
     let state: String
     let timestamp: String
     
     var description: String {
-        return  String(format: "%2d,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%08.6f,%@,%@\n",
-                       id, pos.x, pos.y, axis.x, axis.y, angle, total, density, state, timestamp)
+        return  String(format: "%2d,%05.3f,%05.3f,%05.3f,%05.3f,%05.3f,%05.3f,%05.3f,%05.3f,%@,%@\n",
+                       id, pos.x, pos.y, total, pressure, axis.x, axis.y, angle, density, state, timestamp)
     }
     var explanation: String {
-        return  String(format: "id:%2d, pos:(%05.3f,%05.3f), axis(%06.3f,%05.3f), angle:%05.3f, total:%05.3f, density:%05.3f, %@, %@",
-                       id, pos.x, pos.y, axis.x, axis.y, angle, total, density, state, timestamp)
+        return  String(format: "id:%2d, pos:(%05.3f,%05.3f), total:%05.3f, pressure:%05.3f, axis(%05.3f,%05.3f), angle:%05.3f, density:%05.3f, %@, %@",
+                       id, pos.x, pos.y, total, pressure, axis.x, axis.y, angle, density, state, timestamp)
     }
 }
 

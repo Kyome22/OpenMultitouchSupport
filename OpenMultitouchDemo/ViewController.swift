@@ -54,9 +54,10 @@ class ViewController: NSViewController {
                 }
                 data.append(TouchData(id: touch.identifier,
                                       pos: FloatPair(x: touch.posX, y: touch.posY),
+                                      total: touch.total,
+                                      pressure: touch.pressure,
                                       axis: FloatPair(x: touch.majorAxis, y: touch.minorAxis),
                                       angle: touch.angle,
-                                      total: touch.total,
                                       density: touch.density,
                                       state: state,
                                       timestamp: fmt.string(from: Date())))

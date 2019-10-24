@@ -18,7 +18,6 @@
 
 @property (strong, readwrite) NSMutableArray *listeners;
 @property (assign, readwrite) MTDeviceRef device;
-@property (assign, readwrite) MTImageInfoRef imageInfo;
 
 @end
 

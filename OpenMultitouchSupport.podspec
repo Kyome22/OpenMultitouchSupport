@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name = "OpenMultitouchSupport"
-    spec.version = "1.0"
+    spec.version = "1.1"
     spec.summary = "This enables you easily to observe global multitouch events on the trackpad. [macOS] [MultitouchSupport.framework]"
     spec.description = <<-DESC
         This enables you easily to observe global multitouch events on the trackpad (Built-In only).
