@@ -2,16 +2,16 @@
 # xcodebuild -version
 
 xcodebuild build \
-  -project "Framework/OpenMultitouchSupport.xcodeproj" \
-  -scheme "OpenMultitouchSupport" \
+  -project "Framework/OpenMultitouchSupportXCF.xcodeproj" \
+  -scheme "OpenMultitouchSupportXCF" \
   -destination "generic/platform=macOS" \
   -configuration Release \
   -derivedDataPath "Framework/build"
 
-FRAMEWORK_PATH="Framework/build/Build/Products/Release/OpenMultitouchSupport.framework"
-lipo -archs ${FRAMEWORK_PATH}/OpenMultitouchSupport
+FRAMEWORK_PATH="Framework/build/Build/Products/Release/OpenMultitouchSupportXCF.framework"
+lipo -archs ${FRAMEWORK_PATH}/OpenMultitouchSupportXCF
 
-XC_FRAMEWORK_PATH="Framework/Product/OpenMultitouchSupport.xcframework"
+XC_FRAMEWORK_PATH="Framework/Product/OpenMultitouchSupportXCF.xcframework"
 if [ -e $XC_FRAMEWORK_PATH ]; then
   rm -rf $XC_FRAMEWORK_PATH
 fi

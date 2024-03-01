@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "OpenMultitouchSupportXCF",
-            path: "Framework/Product/OpenMultitouchSupport.xcframework"
+            path: "Framework/Product/OpenMultitouchSupportXCF.xcframework"
         ),
         .target(
             name: "OpenMultitouchSupport",

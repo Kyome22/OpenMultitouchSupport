@@ -1,13 +1,14 @@
 # OpenMultitouchSupport
 
 This enables you easily to observe global multitouch events on the trackpad (Built-In only).  
-I created this framework to make MultitouchSupport.framework (Private Framework) easy to use.  
-This framework refers to [M5MultitouchSupport.framework](https://github.com/mhuusko5/M5MultitouchSupport) very much.
+I created this library to make MultitouchSupport.framework (Private Framework) easy to use.
 
 ## References
 
-- [natevw / TouchSynthesis](https://github.com/calftrail/Touch/blob/master/TouchSynthesis/MultitouchSupport.h)
-- [asmagill / hammerspoon_asm.undocumented](https://github.com/asmagill/hammerspoon_asm.undocumented/blob/master/touchdevice/MultitouchSupport.h)
+This library refers the following frameworks very much. Special Thanks!
+
+- [mhuusko5/M5MultitouchSupport](https://github.com/mhuusko5/M5MultitouchSupport)
+- [calftrail/Touch](https://github.com/calftrail/Touch/blob/master/TouchSynthesis/MultitouchSupport.h)
 
 ## Requirements
 
@@ -17,65 +18,61 @@ This framework refers to [M5MultitouchSupport.framework](https://github.com/mhuu
 
 ## Usage (Swift)
 
-- Prepare manager
-
 ```swift
 import OpenMultitouchSupport
+import Combine
 
-let manager = OpenMTManager.shared()
+var cancellables = Set<AnyCancellable>()
+
+let manager = OMSManager.shared()
+manager.touchDataPublisher
+    .sink { touchData in 
+        // ・・・
+    }
+    .store(in: &cancellables)
+
+manager.startListening()
+manager.stopListening()
 ```
 
-- Register listener
+### The data you can get are as follows
 
 ```swift
-let listener = manager?.addListener(withTarget: self, selector: #selector(process))
+struct OMSPosition {
+    var x: Float
+    var y: Float
+}
 
-@objc func process(_ event: OpenMTEvent) {
-	guard let touches = event.touches as NSArray as? [OpenMTTouch] else { return }
-	// ・・・
+struct OMSAxis {
+    var major: Float
+    var minor: Float
+}
+
+enum OMSState: String {
+    case notTouching
+    case starting
+    case hovering
+    case making
+    case touching
+    case breaking
+    case lingering
+    case leaving
+}
+
+struct OMSTouchData {
+    var id: Int32
+    var pos: OMSPosition
+    var total: Float // total value of capacitance
+    var pressure: Float
+    var axis: OMSAxis
+    var angle: Float // finger angle
+    var density: Float // area density of capacitance
+    var state: OMSState
+    var timestamp: String
 }
 ```
 
-- Remove listener
-
-```swift
-manager?.remove(listener)
-```
-
-- Toggle listening
-
-```swift
-listener.listening = [true / false]
-```
-
-- The data you can get are as follows:
-
-```swift
-OpenMTTouch
-.posX // Float
-.posY // Float
-.total // Float, total value of capacitance 
-.pressure // Float
-.majorAxis // Float
-.minorAxis // Float
-.angle // Float
-.velX // Float
-.velY // Float
-.density // Float, area density of capacitance
-.state // OpenMTState
-
-OpenMTState
-.notTouching
-.starting
-.hovering
-.making
-.touching
-.breaking
-.lingering
-.leaving
-```
-
-## Build OpenMultitouchSupport.xcframework
+## Build OpenMultitouchSupportXCF.xcframework
 
 ```sh
 $ sh build_framework.sh

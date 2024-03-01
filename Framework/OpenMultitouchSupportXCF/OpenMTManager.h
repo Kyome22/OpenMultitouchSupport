@@ -10,8 +10,8 @@
 #define OpenMTManager_h
 
 #import <Foundation/Foundation.h>
-#import <OpenMultitouchSupport/OpenMTListener.h>
-#import <OpenMultitouchSupport/OpenMTEvent.h>
+#import <OpenMultitouchSupportXCF/OpenMTListener.h>
+#import <OpenMultitouchSupportXCF/OpenMTEvent.h>
 
 @interface OpenMTManager: NSObject
 
