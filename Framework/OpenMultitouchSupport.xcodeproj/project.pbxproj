@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CF4147E2B90C87B00A4DB17 /* OpenMultitouchSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF4147D2B90C87B00A4DB17 /* OpenMultitouchSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CF414A02B90D6B000A4DB17 /* MultitouchSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF4149F2B90D6B000A4DB17 /* MultitouchSupport.framework */; };
+		1CF414B02B90D75A00A4DB17 /* OpenMTTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF414A32B90D75A00A4DB17 /* OpenMTTouch.m */; };
+		1CF414B12B90D75A00A4DB17 /* OpenMTTouchInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414A42B90D75A00A4DB17 /* OpenMTTouchInternal.h */; };
+		1CF414B22B90D75A00A4DB17 /* OpenMTManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414A52B90D75A00A4DB17 /* OpenMTManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CF414B32B90D75A00A4DB17 /* OpenMTListenerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414A62B90D75A00A4DB17 /* OpenMTListenerInternal.h */; };
+		1CF414B42B90D75A00A4DB17 /* OpenMTEventInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414A72B90D75A00A4DB17 /* OpenMTEventInternal.h */; };
+		1CF414B52B90D75A00A4DB17 /* OpenMTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF414A82B90D75A00A4DB17 /* OpenMTManager.m */; };
+		1CF414B62B90D75A00A4DB17 /* OpenMTEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414A92B90D75A00A4DB17 /* OpenMTEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CF414B72B90D75A00A4DB17 /* OpenMTTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414AA2B90D75A00A4DB17 /* OpenMTTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CF414B82B90D75A00A4DB17 /* OpenMTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF414AB2B90D75A00A4DB17 /* OpenMTEvent.m */; };
+		1CF414B92B90D75A00A4DB17 /* OpenMTListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF414AC2B90D75A00A4DB17 /* OpenMTListener.m */; };
+		1CF414BA2B90D75A00A4DB17 /* OpenMTListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414AD2B90D75A00A4DB17 /* OpenMTListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CF414BB2B90D75A00A4DB17 /* OpenMTInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414AE2B90D75A00A4DB17 /* OpenMTInternal.h */; };
+		1CF414BC2B90D75A00A4DB17 /* OpenMTManagerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF414AF2B90D75A00A4DB17 /* OpenMTManagerInternal.h */; };
+		1CF414BE2B90DA4D00A4DB17 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF414BD2B90DA4D00A4DB17 /* Cocoa.framework */; };
+		1CF414C02B90DA5300A4DB17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF414BF2B90DA5300A4DB17 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CF4147A2B90C87B00A4DB17 /* OpenMultitouchSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenMultitouchSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF4147D2B90C87B00A4DB17 /* OpenMultitouchSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenMultitouchSupport.h; sourceTree = "<group>"; };
+		1CF4149F2B90D6B000A4DB17 /* MultitouchSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultitouchSupport.framework; path = ../../../../System/Library/PrivateFrameworks/MultitouchSupport.framework; sourceTree = "<group>"; };
+		1CF414A32B90D75A00A4DB17 /* OpenMTTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMTTouch.m; sourceTree = "<group>"; };
+		1CF414A42B90D75A00A4DB17 /* OpenMTTouchInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTTouchInternal.h; sourceTree = "<group>"; };
+		1CF414A52B90D75A00A4DB17 /* OpenMTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTManager.h; sourceTree = "<group>"; };
+		1CF414A62B90D75A00A4DB17 /* OpenMTListenerInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTListenerInternal.h; sourceTree = "<group>"; };
+		1CF414A72B90D75A00A4DB17 /* OpenMTEventInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTEventInternal.h; sourceTree = "<group>"; };
+		1CF414A82B90D75A00A4DB17 /* OpenMTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMTManager.m; sourceTree = "<group>"; };
+		1CF414A92B90D75A00A4DB17 /* OpenMTEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTEvent.h; sourceTree = "<group>"; };
+		1CF414AA2B90D75A00A4DB17 /* OpenMTTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTTouch.h; sourceTree = "<group>"; };
+		1CF414AB2B90D75A00A4DB17 /* OpenMTEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMTEvent.m; sourceTree = "<group>"; };
+		1CF414AC2B90D75A00A4DB17 /* OpenMTListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMTListener.m; sourceTree = "<group>"; };
+		1CF414AD2B90D75A00A4DB17 /* OpenMTListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTListener.h; sourceTree = "<group>"; };
+		1CF414AE2B90D75A00A4DB17 /* OpenMTInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTInternal.h; sourceTree = "<group>"; };
+		1CF414AF2B90D75A00A4DB17 /* OpenMTManagerInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMTManagerInternal.h; sourceTree = "<group>"; };
+		1CF414BD2B90DA4D00A4DB17 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1CF414BF2B90DA5300A4DB17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CF414772B90C87B00A4DB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CF414BE2B90DA4D00A4DB17 /* Cocoa.framework in Frameworks */,
+				1CF414C02B90DA5300A4DB17 /* Foundation.framework in Frameworks */,
+				1CF414A02B90D6B000A4DB17 /* MultitouchSupport.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CF414702B90C87B00A4DB17 = {
+			isa = PBXGroup;
+			children = (
+				1CF4147C2B90C87B00A4DB17 /* OpenMultitouchSupport */,
+				1CF4147B2B90C87B00A4DB17 /* Products */,
+				1CF4149E2B90D6AF00A4DB17 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1CF4147B2B90C87B00A4DB17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CF4147A2B90C87B00A4DB17 /* OpenMultitouchSupport.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CF4147C2B90C87B00A4DB17 /* OpenMultitouchSupport */ = {
+			isa = PBXGroup;
+			children = (
+				1CF414C92B90DFD800A4DB17 /* OpenMTEvent */,
+				1CF414C72B90DFAC00A4DB17 /* OpenMTListener */,
+				1CF414C52B90DF7000A4DB17 /* OpenMTManager */,
+				1CF414C62B90DF9B00A4DB17 /* OpenMTTouch */,
+				1CF414AE2B90D75A00A4DB17 /* OpenMTInternal.h */,
+				1CF4147D2B90C87B00A4DB17 /* OpenMultitouchSupport.h */,
+			);
+			path = OpenMultitouchSupport;
+			sourceTree = "<group>";
+		};
+		1CF4149E2B90D6AF00A4DB17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CF414BF2B90DA5300A4DB17 /* Foundation.framework */,
+				1CF414BD2B90DA4D00A4DB17 /* Cocoa.framework */,
+				1CF4149F2B90D6B000A4DB17 /* MultitouchSupport.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CF414C52B90DF7000A4DB17 /* OpenMTManager */ = {
+			isa = PBXGroup;
+			children = (
+				1CF414A52B90D75A00A4DB17 /* OpenMTManager.h */,
+				1CF414AF2B90D75A00A4DB17 /* OpenMTManagerInternal.h */,
+				1CF414A82B90D75A00A4DB17 /* OpenMTManager.m */,
+			);
+			name = OpenMTManager;
+			sourceTree = "<group>";
+		};
+		1CF414C62B90DF9B00A4DB17 /* OpenMTTouch */ = {
+			isa = PBXGroup;
+			children = (
+				1CF414AA2B90D75A00A4DB17 /* OpenMTTouch.h */,
+				1CF414A42B90D75A00A4DB17 /* OpenMTTouchInternal.h */,
+				1CF414A32B90D75A00A4DB17 /* OpenMTTouch.m */,
+			);
+			name = OpenMTTouch;
+			sourceTree = "<group>";
+		};
+		1CF414C72B90DFAC00A4DB17 /* OpenMTListener */ = {
+			isa = PBXGroup;
+			children = (
+				1CF414AD2B90D75A00A4DB17 /* OpenMTListener.h */,
+				1CF414A62B90D75A00A4DB17 /* OpenMTListenerInternal.h */,
+				1CF414AC2B90D75A00A4DB17 /* OpenMTListener.m */,
+			);
+			name = OpenMTListener;
+			sourceTree = "<group>";
+		};
+		1CF414C92B90DFD800A4DB17 /* OpenMTEvent */ = {
+			isa = PBXGroup;
+			children = (
+				1CF414A92B90D75A00A4DB17 /* OpenMTEvent.h */,
+				1CF414A72B90D75A00A4DB17 /* OpenMTEventInternal.h */,
+				1CF414AB2B90D75A00A4DB17 /* OpenMTEvent.m */,
+			);
+			name = OpenMTEvent;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1CF414752B90C87B00A4DB17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CF414BC2B90D75A00A4DB17 /* OpenMTManagerInternal.h in Headers */,
+				1CF414B62B90D75A00A4DB17 /* OpenMTEvent.h in Headers */,
+				1CF414B22B90D75A00A4DB17 /* OpenMTManager.h in Headers */,
+				1CF414B72B90D75A00A4DB17 /* OpenMTTouch.h in Headers */,
+				1CF414BA2B90D75A00A4DB17 /* OpenMTListener.h in Headers */,
+				1CF414BB2B90D75A00A4DB17 /* OpenMTInternal.h in Headers */,
+				1CF414B32B90D75A00A4DB17 /* OpenMTListenerInternal.h in Headers */,
+				1CF414B12B90D75A00A4DB17 /* OpenMTTouchInternal.h in Headers */,
+				1CF414B42B90D75A00A4DB17 /* OpenMTEventInternal.h in Headers */,
+				1CF4147E2B90C87B00A4DB17 /* OpenMultitouchSupport.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1CF414792B90C87B00A4DB17 /* OpenMultitouchSupport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CF414812B90C87B00A4DB17 /* Build configuration list for PBXNativeTarget "OpenMultitouchSupport" */;
+			buildPhases = (
+				1CF414762B90C87B00A4DB17 /* Sources */,
+				1CF414752B90C87B00A4DB17 /* Headers */,
+				1CF414772B90C87B00A4DB17 /* Frameworks */,
+				1CF414782B90C87B00A4DB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenMultitouchSupport;
+			productName = OpenMultitouchSupport;
+			productReference = 1CF4147A2B90C87B00A4DB17 /* OpenMultitouchSupport.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CF414712B90C87B00A4DB17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					1CF414792B90C87B00A4DB17 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 1CF414742B90C87B00A4DB17 /* Build configuration list for PBXProject "OpenMultitouchSupport" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CF414702B90C87B00A4DB17;
+			productRefGroup = 1CF4147B2B90C87B00A4DB17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CF414792B90C87B00A4DB17 /* OpenMultitouchSupport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CF414782B90C87B00A4DB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CF414762B90C87B00A4DB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CF414B92B90D75A00A4DB17 /* OpenMTListener.m in Sources */,
+				1CF414B82B90D75A00A4DB17 /* OpenMTEvent.m in Sources */,
+				1CF414B52B90D75A00A4DB17 /* OpenMTManager.m in Sources */,
+				1CF414B02B90D75A00A4DB17 /* OpenMTTouch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CF4147F2B90C87B00A4DB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1CF414802B90C87B00A4DB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1CF414822B90C87B00A4DB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VJ5N2X84K8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyome.OpenMultitouchSupport;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+			};
+			name = Debug;
+		};
+		1CF414832B90C87B00A4DB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VJ5N2X84K8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyome.OpenMultitouchSupport;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CF414742B90C87B00A4DB17 /* Build configuration list for PBXProject "OpenMultitouchSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CF4147F2B90C87B00A4DB17 /* Debug */,
+				1CF414802B90C87B00A4DB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CF414812B90C87B00A4DB17 /* Build configuration list for PBXNativeTarget "OpenMultitouchSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CF414822B90C87B00A4DB17 /* Debug */,
+				1CF414832B90C87B00A4DB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CF414712B90C87B00A4DB17 /* Project object */;
+}

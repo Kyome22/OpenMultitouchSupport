@@ -9,3 +9,7 @@ xcuserdata/
 Packages.resolved
 .swiftpm/
 .build/
+
+# Framework
+*.framework/
+build/
