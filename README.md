@@ -74,3 +74,9 @@ OpenMTState
 .lingering
 .leaving
 ```
+
+## Build OpenMultitouchSupport.xcframework
+
+```sh
+$ sh build_framework.sh
+```

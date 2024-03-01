@@ -15,12 +15,12 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "MultitouchSupport",
-            path: "/System/Library/PrivateFrameworks/MultitouchSupport.framework"
+            name: "OpenMultitouchSupportXCF",
+            path: "Framework/Product/OpenMultitouchSupport.xcframework"
         ),
         .target(
             name: "OpenMultitouchSupport",
-            dependencies: ["MultitouchSupport"]
+            dependencies: ["OpenMultitouchSupportXCF"]
         )
     ]
 )
