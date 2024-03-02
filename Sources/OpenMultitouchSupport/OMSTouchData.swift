@@ -44,7 +44,7 @@ public enum OMSState: String {
 
 public struct OMSTouchData: CustomStringConvertible {
     public var id: Int32
-    public var pos: OMSPosition
+    public var position: OMSPosition
     public var total: Float
     public var pressure: Float
     public var axis: OMSAxis
@@ -55,7 +55,7 @@ public struct OMSTouchData: CustomStringConvertible {
 
     public var description: String {
         var text = String(format: "id:%2d, ", id)
-        text += String(format: "pos:(%05.3f,%05.3f), ", pos.x, pos.y)
+        text += String(format: "pos:(%05.3f,%05.3f), ", position.x, position.y)
         text += String(format: "total:%05.3f, ", total)
         text += String(format: "pressure:%05.3f, ", pressure)
         text += String(format: "axis(%05.3f,%05.3f), ", axis.major, axis.minor)

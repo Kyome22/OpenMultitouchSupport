@@ -8,7 +8,8 @@ import OpenMultitouchSupportXCF
 import Combine
 
 public final class OMSManager {
-    public let shared = OMSManager()
+    public static let shared = OMSManager()
+
     private let xcfManager = OpenMTManager.shared()
     private let dateFormatter = DateFormatter()
     private var listener: OpenMTListener?
@@ -17,6 +18,8 @@ public final class OMSManager {
     public var touchDataPublisher: AnyPublisher<[OMSTouchData], Never> {
         touchDataSubject.eraseToAnyPublisher()
     }
+
+    public var isListening: Bool { listener != nil }
 
     private init() {
         dateFormatter.dateFormat = "HH:mm:ss.SSSS"
@@ -55,7 +58,7 @@ public final class OMSManager {
                 guard let state = OMSState(touch.state) else { return nil }
                 return OMSTouchData(
                     id: touch.identifier,
-                    pos: OMSPosition(x: touch.posX, y: touch.posY),
+                    position: OMSPosition(x: touch.posX, y: touch.posY),
                     total: touch.total,
                     pressure: touch.pressure,
                     axis: OMSAxis(major: touch.majorAxis, minor: touch.minorAxis),

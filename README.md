@@ -16,7 +16,19 @@ This library refers the following frameworks very much. Special Thanks!
 - swift-tools-version: 5.9
 - Compatible with macOS 12.0+
 
-## Usage (Swift)
+## Demo
+
+<img src="Screenshots/demo.png" alt="demo" width="632px" />
+
+## Build OpenMultitouchSupportXCF.xcframework
+
+```sh
+$ sh build_framework.sh
+```
+
+## Usage
+
+App SandBox must be disabled to use OpenMultitouchSupport.
 
 ```swift
 import OpenMultitouchSupport
@@ -26,7 +38,7 @@ var cancellables = Set<AnyCancellable>()
 
 let manager = OMSManager.shared()
 manager.touchDataPublisher
-    .sink { touchData in 
+    .sink { touchData in
         // ・・・
     }
     .store(in: &cancellables)
@@ -61,7 +73,7 @@ enum OMSState: String {
 
 struct OMSTouchData {
     var id: Int32
-    var pos: OMSPosition
+    var position: OMSPosition
     var total: Float // total value of capacitance
     var pressure: Float
     var axis: OMSAxis
@@ -70,10 +82,4 @@ struct OMSTouchData {
     var state: OMSState
     var timestamp: String
 }
-```
-
-## Build OpenMultitouchSupportXCF.xcframework
-
-```sh
-$ sh build_framework.sh
 ```
