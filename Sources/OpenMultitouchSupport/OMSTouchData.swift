@@ -7,17 +7,17 @@
 import Foundation
 import OpenMultitouchSupportXCF
 
-public struct OMSPosition {
+public struct OMSPosition: Sendable {
     public var x: Float
     public var y: Float
 }
 
-public struct OMSAxis {
+public struct OMSAxis: Sendable {
     public var major: Float
     public var minor: Float
 }
 
-public enum OMSState: String {
+public enum OMSState: String, Sendable {
     case notTouching
     case starting
     case hovering
@@ -42,7 +42,7 @@ public enum OMSState: String {
     }
 }
 
-public struct OMSTouchData: CustomStringConvertible {
+public struct OMSTouchData: CustomStringConvertible, Sendable {
     public var id: Int32
     public var position: OMSPosition
     public var total: Float

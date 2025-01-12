@@ -4,48 +4,60 @@
  Created by Takuto Nakamura on 2024/03/02.
 */
 
-import OpenMultitouchSupportXCF
 import Combine
+import OpenMultitouchSupportXCF
+import os
 
-public final class OMSManager {
+public final class OMSManager: Sendable {
     public static let shared = OMSManager()
 
-    private let xcfManager = OpenMTManager.shared()
+    private let protectedManager: OSAllocatedUnfairLock<OpenMTManager?>
+    private let protectedListener = OSAllocatedUnfairLock<OpenMTListener?>(uncheckedState: nil)
     private let dateFormatter = DateFormatter()
-    private var listener: OpenMTListener?
 
     private let touchDataSubject = PassthroughSubject<[OMSTouchData], Never>()
-    public var touchDataPublisher: AnyPublisher<[OMSTouchData], Never> {
-        touchDataSubject.eraseToAnyPublisher()
+    public var touchDataStream: AsyncStream<[OMSTouchData]> {
+        AsyncStream { continuation in
+            let cancellable = touchDataSubject.sink { value in
+                continuation.yield(value)
+            }
+            continuation.onTermination = { _ in
+                cancellable.cancel()
+            }
+        }
     }
 
-    public var isListening: Bool { listener != nil }
+    public var isListening: Bool {
+        protectedListener.withLockUnchecked { $0 != nil }
+    }
 
     private init() {
+        protectedManager = .init(uncheckedState: OpenMTManager.shared())
         dateFormatter.dateFormat = "HH:mm:ss.SSSS"
-    }
-
-    deinit {
-        if let xcfManager, let listener {
-            xcfManager.remove(listener)
-        }
     }
 
     @discardableResult
     public func startListening() -> Bool {
-        guard let xcfManager, listener == nil else { return false }
-        listener = xcfManager.addListener(
+        guard let xcfManager = protectedManager.withLockUnchecked(\.self),
+              protectedListener.withLockUnchecked({ $0 == nil }) else {
+            return false
+        }
+        let listener = xcfManager.addListener(
             withTarget: self,
             selector: #selector(listen)
         )
+        protectedListener.withLockUnchecked { $0 = listener }
         return true
     }
 
     @discardableResult
     public func stopListening() -> Bool {
-        guard let xcfManager, let listener else { return false }
+        guard let xcfManager = protectedManager.withLockUnchecked(\.self),
+              let listener = protectedListener.withLockUnchecked(\.self) else {
+            return false
+        }
         xcfManager.remove(listener)
-        self.listener = nil
+        protectedListener.withLockUnchecked { $0 = nil }
         return true
     }
 
@@ -65,10 +77,13 @@ public final class OMSManager {
                     angle: touch.angle,
                     density: touch.density,
                     state: state,
-                    timestamp: dateFormatter.string(from: Date())
+                    timestamp: dateFormatter.string(from: Date.now)
                 )
             }
             touchDataSubject.send(array)
         }
     }
 }
+
+extension AnyCancellable: @retroactive @unchecked Sendable {}
+extension PassthroughSubject: @retroactive @unchecked Sendable {}
