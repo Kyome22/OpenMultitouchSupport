@@ -9,19 +9,16 @@ import SwiftUI
 
 @main
 struct OMSDemoApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .windowResizabilityIfPossible()
+        .windowResizability(.contentSize)
     }
 }
 
-extension Scene {
-    func windowResizabilityIfPossible() -> some Scene {
-        if #available(macOS 13.0, *) {
-            return self.windowResizability(.contentSize)
-        }
-        return self
-    }
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 }

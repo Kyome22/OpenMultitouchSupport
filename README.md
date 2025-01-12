@@ -12,8 +12,8 @@ This library refers the following frameworks very much. Special Thanks!
 
 ## Requirements
 
-- Development with Xcode 15.2+
-- swift-tools-version: 5.9
+- Development with Xcode 16.0+
+- swift-tools-version: 6.0
 - Compatible with macOS 12.0+
 
 ## Demo
@@ -23,7 +23,7 @@ This library refers the following frameworks very much. Special Thanks!
 ## Build OpenMultitouchSupportXCF.xcframework
 
 ```sh
-$ sh build_framework.sh
+$ ./build_framework.sh
 ```
 
 ## Usage
@@ -32,16 +32,14 @@ App SandBox must be disabled to use OpenMultitouchSupport.
 
 ```swift
 import OpenMultitouchSupport
-import Combine
-
-var cancellables = Set<AnyCancellable>()
 
 let manager = OMSManager.shared()
-manager.touchDataPublisher
-    .sink { touchData in
-        // ・・・
+
+Task { [weak self, manager] in
+    for await touchData in manager.touchDataStream {
+        // use touchData
     }
-    .store(in: &cancellables)
+}
 
 manager.startListening()
 manager.stopListening()
@@ -50,17 +48,17 @@ manager.stopListening()
 ### The data you can get are as follows
 
 ```swift
-struct OMSPosition {
+struct OMSPosition: Sendable {
     var x: Float
     var y: Float
 }
 
-struct OMSAxis {
+struct OMSAxis: Sendable {
     var major: Float
     var minor: Float
 }
 
-enum OMSState: String {
+enum OMSState: String, Sendable {
     case notTouching
     case starting
     case hovering
@@ -71,7 +69,7 @@ enum OMSState: String {
     case leaving
 }
 
-struct OMSTouchData {
+struct OMSTouchData: Sendable {
     var id: Int32
     var position: OMSPosition
     var total: Float // total value of capacitance
