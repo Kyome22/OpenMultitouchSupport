@@ -14,7 +14,7 @@ This library refers the following frameworks very much. Special Thanks!
 
 - Development with Xcode 16.0+
 - swift-tools-version: 6.0
-- Compatible with macOS 12.0+
+- Compatible with macOS 13.0+
 
 ## Demo
 
