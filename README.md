@@ -1,6 +1,6 @@
 # OpenMultitouchSupport
 
-This enables you easily to observe global multitouch events on the trackpad (Built-In only).  
+This enables you easily to observe global multitouch events on the trackpad (only default device).  
 I created this library to make MultitouchSupport.framework (Private Framework) easy to use.
 
 ## References
