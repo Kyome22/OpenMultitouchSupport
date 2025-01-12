@@ -11,7 +11,7 @@
 		77292A8A2B931953001CA3F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77292A892B931953001CA3F6 /* ContentView.swift */; };
 		77292A8C2B931954001CA3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77292A8B2B931954001CA3F6 /* Assets.xcassets */; };
 		77292A8F2B931954001CA3F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77292A8E2B931954001CA3F6 /* Preview Assets.xcassets */; };
-		77292A982B931D60001CA3F6 /* ContentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77292A972B931D60001CA3F6 /* ContentViewState.swift */; };
+		77292A982B931D60001CA3F6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77292A972B931D60001CA3F6 /* ContentViewModel.swift */; };
 		77292A9B2B931D7A001CA3F6 /* OpenMultitouchSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 77292A9A2B931D7A001CA3F6 /* OpenMultitouchSupport */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +23,7 @@
 		77292A8E2B931954001CA3F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77292A902B931954001CA3F6 /* OMSDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMSDemo.entitlements; sourceTree = "<group>"; };
 		77292A962B931C84001CA3F6 /* OpenMultitouchSupport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OpenMultitouchSupport; path = ..; sourceTree = "<group>"; };
-		77292A972B931D60001CA3F6 /* ContentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewState.swift; sourceTree = "<group>"; };
+		77292A972B931D60001CA3F6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 				77292A8B2B931954001CA3F6 /* Assets.xcassets */,
 				77292A872B931953001CA3F6 /* OMSDemoApp.swift */,
 				77292A892B931953001CA3F6 /* ContentView.swift */,
-				77292A972B931D60001CA3F6 /* ContentViewState.swift */,
+				77292A972B931D60001CA3F6 /* ContentViewModel.swift */,
 				77292A8D2B931954001CA3F6 /* Preview Content */,
 			);
 			path = OMSDemo;
@@ -115,7 +115,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					77292A832B931953001CA3F6 = {
 						CreatedOnToolsVersion = 15.2;
@@ -158,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77292A8A2B931953001CA3F6 /* ContentView.swift in Sources */,
-				77292A982B931D60001CA3F6 /* ContentViewState.swift in Sources */,
+				77292A982B931D60001CA3F6 /* ContentViewModel.swift in Sources */,
 				77292A882B931953001CA3F6 /* OMSDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +200,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -219,7 +220,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -263,6 +264,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -276,7 +278,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -293,7 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"OMSDemo/Preview Content\"";
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = VJ5N2X84K8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -307,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyome.OMSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -320,7 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"OMSDemo/Preview Content\"";
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = VJ5N2X84K8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -334,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyome.OMSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

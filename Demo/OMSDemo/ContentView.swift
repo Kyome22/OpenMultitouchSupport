@@ -5,29 +5,29 @@
 //  Created by Takuto Nakamura on 2024/03/02.
 //
 
-import SwiftUI
 import OpenMultitouchSupport
+import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewState = ContentViewState()
+    @StateObject var viewModel = ContentViewModel()
 
     var body: some View {
         VStack {
-            if viewState.isListening {
+            if viewModel.isListening {
                 Button {
-                    viewState.stop()
+                    viewModel.stop()
                 } label: {
-                    Text(verbatim: "Stop")
+                    Text("Stop")
                 }
             } else {
                 Button {
-                    viewState.start()
+                    viewModel.start()
                 } label: {
-                    Text(verbatim: "Start")
+                    Text("Start")
                 }
             }
             Canvas { context, size in
-                viewState.touchData.forEach { touch in
+                viewModel.touchData.forEach { touch in
                     let path = makeEllipse(touch: touch, size: size)
                     context.fill(path, with: .color(.primary.opacity(Double(touch.total))))
                 }
@@ -37,6 +37,12 @@ struct ContentView: View {
         }
         .fixedSize()
         .padding()
+        .onAppear {
+            viewModel.onAppear()
+        }
+        .onDisappear {
+            viewModel.onDisappear()
+        }
     }
 
     private func makeEllipse(touch: OMSTouchData, size: CGSize) -> Path {
