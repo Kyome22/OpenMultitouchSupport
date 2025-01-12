@@ -12,4 +12,6 @@ Packages.resolved
 
 # Framework
 *.framework/
+*.xcframework/
+*.zip
 build/

@@ -18,3 +18,14 @@ fi
 xcodebuild -create-xcframework \
   -framework $FRAMEWORK_PATH \
   -output $XC_FRAMEWORK_PATH
+
+XC_FRAMEWORK_ZIP_PATH="${XC_FRAMEWORK_PATH}.zip"
+if [ -e $XC_FRAMEWORK_ZIP_PATH ]; then
+  rm -rf $XC_FRAMEWORK_ZIP_PATH
+fi
+
+zip -Xr $XC_FRAMEWORK_ZIP_PATH $XC_FRAMEWORK_PATH
+ls -Slh $XC_FRAMEWORK_ZIP_PATH | awk '{print $5, $9}'
+
+CHECKSUM=$(swift package compute-checksum $XC_FRAMEWORK_ZIP_PATH)
+echo "Checksum: ${CHECKSUM}"
