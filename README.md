@@ -20,12 +20,6 @@ This library refers the following frameworks very much. Special Thanks!
 
 <img src="Screenshots/demo.png" alt="demo" width="632px" />
 
-## Build OpenMultitouchSupportXCF.xcframework
-
-```sh
-$ ./build_framework.sh
-```
-
 ## Usage
 
 App SandBox must be disabled to use OpenMultitouchSupport.
