@@ -48,38 +48,47 @@
 
 - (void)makeDevice {
     if (MTDeviceIsAvailable()) {
-        self.device = MTDeviceCreateDefault();
-        
-        uuid_t guid;
-        OSStatus err = MTDeviceGetGUID(self.device, &guid);
-        if (!err) {
-            uuid_string_t val;
-            uuid_unparse(guid, val);
-            NSLog(@"GUID: %s", val);
-        }
-        
-        int type;
-        err = MTDeviceGetDriverType(self.device, &type);
-        if (!err) NSLog(@"Driver Type: %d", type);
-        
-        uint64_t deviceID;
-        err = MTDeviceGetDeviceID(self.device, &deviceID);
-        if (!err) NSLog(@"DeviceID: %llu", deviceID);
-        
-        int familyID;
-        err = MTDeviceGetFamilyID(self.device, &familyID);
-        if (!err) NSLog(@"FamilyID: %d", familyID);
-        
-        int width, height;
-        err = MTDeviceGetSensorSurfaceDimensions(self.device, &width, &height);
-        if (!err) NSLog(@"Surface Dimensions: %d x %d ", width, height);
-        
-        int rows, cols;
-        err = MTDeviceGetSensorDimensions(self.device, &rows, &cols);
-        if (!err) NSLog(@"Dimensions: %d x %d ", rows, cols);
-        
-        bool isOpaque = MTDeviceIsOpaqueSurface(self.device);
-        NSLog(isOpaque ? @"Opaque: true" : @"Opaque: false");
+        CFArrayRef deviceList = MTDeviceCreateList();
+        CFIndex count = CFArrayGetCount(deviceList);
+        NSLog(@"Devices Count: %ld", count);
+        for(CFIndex i = 0;i < count; i++){
+            void *device = (void *)CFArrayGetValueAtIndex(deviceList, i);
+            uuid_t guid;
+            OSStatus err = MTDeviceGetGUID(device, &guid);
+            if (!err) {
+                uuid_string_t val;
+                uuid_unparse(guid, val);
+                NSLog(@"GUID: %s", val);
+            }
+            
+            int type;
+            err = MTDeviceGetDriverType(device, &type);
+            if (!err) NSLog(@"Driver Type: %d", type);
+            
+            uint64_t deviceID;
+            err = MTDeviceGetDeviceID(device, &deviceID);
+            if (!err) NSLog(@"DeviceID: %llu", deviceID);
+            
+            int familyID;
+            err = MTDeviceGetFamilyID(device, &familyID);
+            if (!err) NSLog(@"FamilyID: %d", familyID);
+            
+            int width, height;
+            err = MTDeviceGetSensorSurfaceDimensions(device, &width, &height);
+            if (!err) NSLog(@"Surface Dimensions: %d x %d ", width, height);
+            if(height > 1000){
+                self.device = device;
+            } //Some devices with touch bar.
+            
+            int rows, cols;
+            err = MTDeviceGetSensorDimensions(device, &rows, &cols);
+            if (!err) NSLog(@"Dimensions: %d x %d ", rows, cols);
+            
+            bool isOpaque = MTDeviceIsOpaqueSurface(device);
+            NSLog(isOpaque ? @"Opaque: true" : @"Opaque: false");
+            
+            //self.device = device;
+        };
         
         // MTPrintImageRegionDescriptors(self.device); work
     }

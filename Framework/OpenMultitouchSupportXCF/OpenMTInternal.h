@@ -62,6 +62,7 @@ typedef void (*MTPathCallbackFunction)(MTDeviceRef device, long pathID, long sta
 
 bool MTDeviceIsAvailable(void); // true if can create default device
 MTDeviceRef MTDeviceCreateDefault(void);
+CFArrayRef MTDeviceCreateList(void);
 OSStatus MTDeviceStart(MTDeviceRef, int);
 OSStatus MTDeviceStop(MTDeviceRef);
 void MTDeviceRelease(MTDeviceRef);
