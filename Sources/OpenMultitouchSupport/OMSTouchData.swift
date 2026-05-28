@@ -27,16 +27,23 @@ public enum OMSState: String, Sendable {
     case leaving
 
     init?(_ state: OpenMTState) {
+        guard let newValue = Self.create(from: state) else {
+            return nil
+        }
+        self = newValue
+    }
+
+    private static func create(from state: OpenMTState) -> OMSState? {
         switch state {
-        case .notTouching: self = .notTouching
-        case .starting:    self = .starting
-        case .hovering:    self = .hovering
-        case .making:      self = .making
-        case .touching:    self = .touching
-        case .breaking:    self = .breaking
-        case .lingering:   self = .lingering
-        case .leaving:     self = .leaving
-        @unknown default:  return nil
+        case .notTouching: .notTouching
+        case .starting: .starting
+        case .hovering: .hovering
+        case .making: .making
+        case .touching: .touching
+        case .breaking: .breaking
+        case .lingering: .lingering
+        case .leaving: .leaving
+        @unknown default:  nil
         }
     }
 }
