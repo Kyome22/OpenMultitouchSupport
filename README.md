@@ -12,9 +12,9 @@ This library refers the following frameworks very much. Special Thanks!
 
 ## Requirements
 
-- Development with Xcode 16.0+
-- swift-tools-version: 6.0
-- Compatible with macOS 13.0+
+- Development with Xcode 26.2+
+- swift-tools-version: 6.2
+- Compatible with macOS 15.0+
 
 ## Demo
 
