@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 
 import PackageDescription
 
@@ -9,13 +9,16 @@ let swiftSettings: [SwiftSetting] = [
 let package = Package(
     name: "OpenMultitouchSupport",
     platforms: [
-        .macOS(.v13)
+        .macOS(.v15),
     ],
     products: [
         .library(
             name: "OpenMultitouchSupport",
             targets: ["OpenMultitouchSupport"]
         )
+    ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-async-algorithms.git", from: "1.1.4"),
     ],
     targets: [
         .binaryTarget(
@@ -25,7 +28,10 @@ let package = Package(
         ),
         .target(
             name: "OpenMultitouchSupport",
-            dependencies: ["OpenMultitouchSupportXCF"],
+            dependencies: [
+                "OpenMultitouchSupportXCF",
+                .product(name: "AsyncAlgorithms", package: "swift-async-algorithms"),
+            ],
             swiftSettings: swiftSettings
         )
     ]

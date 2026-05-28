@@ -2,9 +2,9 @@
  OMSManager.swift
 
  Created by Takuto Nakamura on 2024/03/02.
-*/
+ */
 
-import Combine
+import AsyncAlgorithms
 import OpenMultitouchSupportXCF
 import os
 
@@ -15,16 +15,9 @@ public final class OMSManager: Sendable {
     private let protectedListener = OSAllocatedUnfairLock<OpenMTListener?>(uncheckedState: nil)
     private let dateFormatter = DateFormatter()
 
-    private let touchDataSubject = PassthroughSubject<[OMSTouchData], Never>()
-    public var touchDataStream: AsyncStream<[OMSTouchData]> {
-        AsyncStream { continuation in
-            let cancellable = touchDataSubject.sink { value in
-                continuation.yield(value)
-            }
-            continuation.onTermination = { _ in
-                cancellable.cancel()
-            }
-        }
+    private let touchDataStreamBundle = AsyncStreamBundle<[OMSTouchData]>()
+    public var touchDataStream: any AsyncShareStream<[OMSTouchData]> {
+        touchDataStreamBundle.stream
     }
 
     public var isListening: Bool {
@@ -64,7 +57,7 @@ public final class OMSManager: Sendable {
     @objc func listen(_ event: OpenMTEvent) {
         guard let touches = (event.touches as NSArray) as? [OpenMTTouch] else { return }
         if touches.isEmpty {
-            touchDataSubject.send([])
+            touchDataStreamBundle.send([])
         } else {
             let array = touches.compactMap { touch -> OMSTouchData? in
                 guard let state = OMSState(touch.state) else { return nil }
@@ -80,10 +73,7 @@ public final class OMSManager: Sendable {
                     timestamp: dateFormatter.string(from: Date.now)
                 )
             }
-            touchDataSubject.send(array)
+            touchDataStreamBundle.send(array)
         }
     }
 }
-
-extension AnyCancellable: @retroactive @unchecked Sendable {}
-extension PassthroughSubject: @retroactive @unchecked Sendable {}

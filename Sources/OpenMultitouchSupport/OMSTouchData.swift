@@ -2,9 +2,8 @@
  OMSTouchData.swift
 
  Created by Takuto Nakamura on 2024/03/02.
-*/
+ */
 
-import Foundation
 import OpenMultitouchSupportXCF
 
 public struct OMSPosition: Sendable {
